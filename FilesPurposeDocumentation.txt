@@ -1,0 +1,13 @@
+AI/LogisticPlugin - functions for ai agent to extract information from database contaning description of what each function
+AI/Chatbotservice - gets text from user ->> sends texta nd history and definitions from LogisticPlugin to LLM. ->>
+->> LLM can request calling of function that extract knolage from database ->>we send new promts with data to LLM
+--> returns final answer to ChatControler
+Controlers/ChatController.cs - recieves raw HHTP request with user query parses it and asks ChatbotService for answer.
+data/AppDatabaseContent - processes quaries and give simple function taht wil call sql qurery
+DataTransfer/ChatbotRequestTemplate - defines structure of request like (string SessionId, string Message).
+DataTransfer/OrderResponceTempate - shows part of order to cutommer and prevents leakage of internal details
+Models/_ - defines types like Material, Order, Vehicle, no logic inside these classes
+Services/IServiceReardingOrder - Interface of main logic of program
+Services/ServiceReardingOrder - implementation of progranm logic like createOrder(), getPrice()....
+Program - entery point of program, it inicialises server loop implemented in .NET framework and setsup workflow
+
